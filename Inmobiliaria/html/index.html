@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../css/styles_Index.css" />
+        <title>Inmobiliaria</title>
+    </head>
+    <body>
+        <header class="barra_menu">
+            <a href="index.html" class="zona_logo">
+                <img src="../img/logo.svg" alt="Logo" id="logo" />
+            </a>
+            <ul id="menu">
+                <ul>
+                    <center>
+                        <li>
+                            <a href="#" class="animoBorderLeftRight"
+                                >Nosotros</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#" class="animoBorderLeftRight"
+                                >Propiedades</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#" class="animoBorderLeftRight"
+                                >Contactanos</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#" class="animoBorderLeftRight"
+                                >Iniciar Sesion</a
+                            >
+                        </li>
+                    </center>
+                </ul>
+            </ul>
+
+            <div class="selector_propiedades ventanaCentrada">
+                <div class="contenedor_titulo">
+                    <h2 class="titulo_selector">Buscar propiedades</h2>
+                </div>
+                <div class="contenedor_selector">
+                    <form class="form">
+                        <div class="zona_selector">
+                            <p class="p_selector">Ciudad:</p>
+                            <select name="Ciudad" class="selector">
+                                <option value="Xalapa">Xalapa</option>
+                                <option value="Veracruz">Veracruz</option>
+                                <option value="Cordoba">Cordoba</option>
+                                <option value="Boca_del_Rio"
+                                    >Boca del Rio</option
+                                >
+                            </select>
+                        </div>
+                        <div class="zona_selector">
+                            <p class="p_selector">Colonia:</p>
+                            <select name="Colonia" class="selector">
+                                <option value="Casa">Casa</option>
+                                <option value="Departamento"
+                                    >Departamento</option
+                                >
+                                <option value="Terreno">Terreno</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="zona_selector">
+                            <p class="p_selector">Tipo de propiedad:</p>
+                            <select name="Tipo_propiedad" class="selector">
+                                <option value="Casa">Casa</option>
+                                <option value="Departamento"
+                                    >Departamento</option
+                                >
+                                <option value="Terreno">Terreno</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="zona_selector">
+                            <p class="p_selector">Número de recámaras:</p>
+                            <input
+                                type="number"
+                                min="0"
+                                max="7"
+                                value="2"
+                                class="spinner_recamaras"
+                            />
+                        </div>
+                        <div class="zona_selector">
+                            <p class="p_selector">Rango de precios:</p>
+                            <input
+                                type="number"
+                                name="precio_min"
+                                value="50000"
+                                class="rango_precios"
+                            />
+                            <input
+                                type="number"
+                                name="precio_max"
+                                value="100000000"
+                                class="rango_precios"
+                            />
+                        </div>
+                    </form>
+                </div>
+                <div class="contenedor_bottom">
+                    <a href="inventario.html">
+                        <button type="button" class="btn_buscar">Buscar</button>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </body>
+</html>

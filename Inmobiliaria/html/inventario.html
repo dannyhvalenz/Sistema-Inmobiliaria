@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Buscar Propiedad</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../css/styles_Inventario.css" />
+    </head>
+    <body>
+        <header class="barra_header">
+        </header>
+        <div class="barra_busqueda">
+            <div class="zona_selector">
+                            <p class="p_selector">Ciudad:</p>
+                            <select name="Ciudad" class="selector">
+                                <option value="Xalapa">Xalapa</option>
+                                <option value="Veracruz">Veracruz</option>
+                                <option value="Cordoba">Cordoba</option>
+                                <option value="Boca_del_Rio"
+                                    >Boca del Rio</option
+                                >
+                            </select>
+                        </div>
+                        <div class="zona_selector">
+                            <p class="p_selector">Colonia:</p>
+                            <select name="Colonia" class="selector">
+                                <option value="Casa">Casa</option>
+                                <option value="Departamento"
+                                    >Departamento</option
+                                >
+                                <option value="Terreno">Terreno</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="zona_selector">
+                            <p class="p_selector">Tipo de propiedad:</p>
+                            <select name="Tipo_propiedad" class="selector">
+                                <option value="Casa">Casa</option>
+                                <option value="Departamento"
+                                    >Departamento</option
+                                >
+                                <option value="Terreno">Terreno</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="zona_selector">
+                            <p class="p_selector">Recámaras:</p>
+                            <input
+                                type="number"
+                                min="0"
+                                max="7"
+                                value="2"
+                                class="spinner_recamaras"
+                            />
+                        </div>
+                        <div class="zona_selector">
+                            <p class="p_selector">Rango de precios:</p>
+                            <input
+                                type="number"
+                                name="precio_min"
+                                value="50000"
+                                class="rango_precios"
+                            />
+                            <input
+                                type="number"
+                                name="precio_max"
+                                value="100000000"
+                                class="rango_precios"
+                            />
+                        </div>
+        </div>
+        <div class="zona_mapa">
+            <div id="map"></div>
+        </div>
+        <div class="inventario"></div>
+        <div class="ordenar_por"></div>
+        <footer></footer>
+        
+        <script>
+            // Initialize and add the map
+            function initMap() {
+                // The location of Uluru
+                var uluru = { lat: -25.344, lng: 131.036 };
+                // The map, centered at Uluru
+                var map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 4,
+                    center: uluru
+                });
+                // The marker, positioned at Uluru
+                var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map
+                });
+            }
+        </script>
+        <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+        <script
+            async
+            defer
+            src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+        ></script>
+    </body>
+</html>
