@@ -11,6 +11,14 @@
     object-fit: contain;
 }
 
+.inicioSesion {
+    background-image: url("../img/fondo.jpg");
+    min-height: 480px;
+}
+#login {
+    background-color: white;
+}
+
 a {
     text-decoration: none;
 }
