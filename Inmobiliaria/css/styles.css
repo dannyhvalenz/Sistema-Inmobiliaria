@@ -26,7 +26,6 @@ a {
 .visualizarPropiedades {
     width: 100%;
     height: 100%;
-    background: blue;
     color:white;
 }
 
@@ -34,6 +33,9 @@ a {
     height: 100%;
     visibility: hidden;
     background: red;
+    overflow: scroll;
+    margin: 0;
+    padding: 0;    
 }
 
 /*SELECTOR DE PROPIEDADES*/

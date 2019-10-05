@@ -19,42 +19,96 @@
         <link rel="stylesheet" href="../css/styles.css" />
     </head>
     <body>
-        <div class="w3-bar w3-dark-grey">
-            <button class="w3-bar-item w3-button w3-medium" onclick="w3_open_sidebar()">☰</button>
+        <!---BARRA SUPERIOR--->
+        <div class="w3-bar w3-dark-grey" id="barra_superior">
+            <button
+                class="w3-bar-item w3-button w3-medium"
+                onclick="w3_open_sidebar()"
+            >
+                ☰
+            </button>
             <span class="w3-bar-item w3-mobile">Inmobiliaria</span>
-            <span class="w3-bar-item w3-mobile w3-right w3-button">Cerrar Sesion</span>
-        </div>
-        
-        <!-- Sidebar -->
-        <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="sidebar">
-            <button onclick="w3_close_sidebar()" class="w3-bar-item w3-medium"> &times; Close </button>
-            <a href="#" class="w3-bar-item w3-button">Inmuebles</a>
-            <a href="#" class="w3-bar-item w3-button">Propietarios</a>
-            <a href="#" class="w3-bar-item w3-button">Clientes</a>
+            <span class="w3-bar-item w3-mobile w3-right w3-button">
+                Cerrar Sesion
+                <i class="fa fa-sign-out fa-lg "></i>
+            </span>
         </div>
 
+        <div
+            class="w3-sidebar w3-bar-block w3-card w3-animate-left"
+            style="display:none"
+            id="mySidebar"
+        >
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">
+                <i class="fa fa-home fa-lg "></i>
+                Inmuebles
+            </a>
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">
+                <i class="fa fa-user fa-lg "></i>
+                Propietarios
+            </a>
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">
+                <i class="fa fa-money fa-lg "></i>
+                Clientes
+            </a>
+            <button
+                class="w3-bar-item w3-button w3-large w3-display-bottomleft"
+            >
+                Close &times;
+            </button>
+        </div>
 
-        <div class="visualizarPropiedades w3-left" id="divVisualizar">
-            <div class="w3-bar w3-blue">
-                <span>
-                    <button class="w3-bar-item w3-button w3-medium w3-right" onclick="w3_open()" id="load_home">
-                        <i class="fa fa-search fa-lg w3-text-gray"></i>
-                    </button>
-                    <input type="search" placeholder="Buscar" class="w3-bar-item w3-input w3-right">
-                </span>
+        <!---MAIN--->
+        <div id="main">
+            <div class="visualizarPropiedades w3-left" id="divVisualizar">
+                <div class="w3-bar w3-white w3-border-gray w3-margin-left">
+                    <span>
+                        <input
+                            type="search"
+                            placeholder="Buscar"
+                            class="w3-bar-item w3-input w3-left"
+                        />
+                        <button
+                            class="w3-bar-item w3-button w3-medium w3-left"
+                            onclick=""
+                            id=""
+                        >
+                            <i
+                                class="fa fa-search fa-lg w3-text-orange fa-flip-horizontal"
+                            ></i>
+                        </button>
+                        <button
+                            class="w3-bar-item w3-button w3-medium w3-right w3-margin-right"
+                            onclick="w3_open()">
+                            Nuevo
+                            <i class="fa fa-plus-circle fa-lg w3-text-orange"></i>
+                        </button>
+                    </span>
+                </div>
+                <h1 id="titulo" class="w3-text-orange">HOLA</h1>
+            </div>
+
+            <div
+                class="w3-right "
+                id="divAdmin"
+            >
+                <div class="contenedor" id="contenido">
+                    <object></object>
+                </div>
             </div>
         </div>
-        <div class="administrarPropiedades w3-container w3-right" id="divAdmin"></div>
     </body>
     <script>
         function w3_open() {
             document.getElementById("divAdmin").style.display = "block";
             document.getElementById("divVisualizar").style.width = "50%";
             document.getElementById("divAdmin").style.width = "50%";
-            document.getElementById("divAdmin").style.height = "100%";
+            document.getElementById("divAdmin").style.height = "100vh";
             document.getElementById("divAdmin").style.display = "block";
             document.getElementById("divAdmin").style.visibility = "visible";
-            document.getElementById("divAdmin").innerHTML='<object type="text/html" data="registro_propiedad.html"></object>';
+
+            document.getElementById("divAdmin").innerHTML =
+                '<object type="text/html" data="registro_propiedad.html" ></object>';
         }
 
         function w3_close() {
@@ -62,11 +116,20 @@
         }
 
         function w3_open_sidebar() {
-            document.getElementById("sidebar").style.display = "block";
+            document.getElementById("main").style.marginLeft = "25%";
+            document.getElementById("mySidebar").style.width = "25%";
+            document.getElementById("mySidebar").style.display = "block";
+
+            document.getElementById("barra_superior").style.width = "75%";
+            document.getElementById("barra_superior").style.float = "right";
         }
 
         function w3_close_sidebar() {
-            document.getElementById("sidebar").style.display = "none";
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("barra_superior").style.display =
+                "inline-block";
+            document.getElementById("barra_superior").style.width = "100%";
         }
     </script>
 </html>
