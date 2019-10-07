@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -39,20 +39,21 @@
             style="display:none"
             id="mySidebar"
         >
-            <a href="#" class="w3-bar-item w3-button w3-hover-black">
+            <a href="../Inmueble/menu_Inmuebles.html" class="w3-bar-item w3-button w3-hover-black">
                 <i class="fa fa-home fa-lg "></i>
                 Inmuebles
             </a>
-            <a href="#" class="w3-bar-item w3-button w3-hover-black">
-                <i class="fa fa-user fa-lg "></i>
+            <a href="../Propietario/menu_Propietario.html" class="w3-bar-item w3-button w3-hover-black">
+                <i class="fa fa-key fa-lg "></i>
                 Propietarios
             </a>
             <a href="#" class="w3-bar-item w3-button w3-hover-black">
-                <i class="fa fa-money fa-lg "></i>
+                <i class="fa fa-user fa-lg "></i>
                 Clientes
             </a>
             <button
                 class="w3-bar-item w3-button w3-large w3-display-bottomleft"
+                onclick="w3_close_sidebar()"
             >
                 Close &times;
             </button>
@@ -79,19 +80,19 @@
                         </button>
                         <button
                             class="w3-bar-item w3-button w3-medium w3-right w3-margin-right"
-                            onclick="w3_open()">
+                            onclick="w3_open()"
+                        >
                             Nuevo
-                            <i class="fa fa-plus-circle fa-lg w3-text-orange"></i>
+                            <i
+                                class="fa fa-plus-circle fa-lg w3-text-orange"
+                            ></i>
                         </button>
                     </span>
                 </div>
                 <h1 id="titulo" class="w3-text-orange">HOLA</h1>
             </div>
 
-            <div
-                class="w3-right "
-                id="divAdmin"
-            >
+            <div class="w3-right " id="divAdmin">
                 <div class="contenedor" id="contenido">
                     <object></object>
                 </div>
@@ -106,9 +107,8 @@
             document.getElementById("divAdmin").style.height = "100vh";
             document.getElementById("divAdmin").style.display = "block";
             document.getElementById("divAdmin").style.visibility = "visible";
-
             document.getElementById("divAdmin").innerHTML =
-                '<object type="text/html" data="registro_propiedad.html" ></object>';
+                '<object type="text/html" data="" height="100%" width="100%" class="w3-border-left"></object>';
         }
 
         function w3_close() {

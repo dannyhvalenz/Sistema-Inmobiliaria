@@ -26,16 +26,16 @@ a {
 .visualizarPropiedades {
     width: 100%;
     height: 100%;
-    color:white;
+    color: white;
 }
 
-.administrarPropiedades{
+.administrarPropiedades {
     height: 100%;
     visibility: hidden;
     background: red;
     overflow: scroll;
     margin: 0;
-    padding: 0;    
+    padding: 0;
 }
 
 /*SELECTOR DE PROPIEDADES*/
@@ -202,6 +202,49 @@ input[type="radio"]:checked + label span {
 lista_inventario {
     width: 80%;
 }
+
+/*FORMULARIOS*/
+
+input {
+    display: block;
+    height: 50px;
+    width: 90%;
+    margin: 0 auto;
+    border: none;
+    &::placeholder {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }
+    &:hover,
+    &:focus,
+    &:active:focus {
+        color: #ff5722;
+        outline: none;
+        border-bottom: 1px solid #ff5722;
+        &::placeholder {
+            color: #ff5722;
+            position: relative;
+            -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+        }
+    }
+}
+
+.textfield {
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 20px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    color: #858585;
+    font-weight: lighter;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
 /*ANIMACIONES*/
 
 .animoBorderLeftRight {
@@ -224,4 +267,57 @@ lista_inventario {
 .animoBorderLeftRight:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+}
+
+.animoTextLeft {
+    height: 40px;
+    width: 120px;
+    text-align: center;
+    overflow: hidden;
+    background: #f39c12;
+    position: relative;
+    line-height: 40px;
+    color: #fff;
+}
+.animoTextLeft::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    background: #4c4e51;
+    transition: transform 0.25s ease-in;
+}
+.animoTextLeft:hover {
+    cursor: pointer;
+    color: #fff;
+}
+.animoTextLeft:hover::before {
+    transform: translateX(0);
+}
+.animoTextLeft span {
+    position: relative;
+    z-index: 1;
+    display: block;
+}
+.animoTextLeft:hover span {
+    animation: animButtonSpan 0.4s;
+}
+@keyframes animButtonSpan {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    35% {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    50.001% {
+        transform: translateX(-20px);
+    }
+    60% {
+        transform: translateX(0);
+    }
 }

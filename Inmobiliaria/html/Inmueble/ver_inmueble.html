@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Ver inmuble</title>
+        <link
+            rel="stylesheet"
+            href="https://www.w3schools.com/w3css/4/w3.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="../css/w3.css" />
+        <link rel="stylesheet" href="../css/styles.css" />
+        <style>
+            .mySlides {
+                display: none;
+                max-height: 300px;
+                max-width: auto;
+                height: auto;
+                width: auto;
+            }
+            .w3-left,
+            .w3-right,
+            .w3-badge {
+                cursor: pointer;
+            }
+            .w3-badge {
+                height: 13px;
+                width: 13px;
+                padding: 0;
+            }
+            #ContenedorImagenes {
+                max-height: 400px;
+                height: auto;
+                width: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <header class="w3-container w3-orange w3-center w3-text-white">
+                <h1 class="w3-xlarge">VER INMUEBLE</h1>
+            </header>
+
+            <!---SLIDESHOW--->
+            <div
+                class="w3-content w3-display-container"
+                style="max-width:800px"
+                id="ContenedorImagenes"
+            >
+                <img
+                    class="mySlides"
+                    src="../Inmueble/Casa1/Casa01-1.jpeg"
+                    style="width:100%"
+                />
+                <img
+                    class="mySlides"
+                    src="../Inmueble/Casa1/Casa01-2.jpeg"
+                    style="width:100%"
+                />
+                <img
+                    class="mySlides"
+                    src="../Inmueble/Casa1/Casa01-3.jpeg"
+                    style="width:100%"
+                />
+                <img
+                    class="mySlides"
+                    src="../Inmueble/Casa1/Casa01-4.jpeg"
+                    style="width:100%"
+                />
+                <img
+                    class="mySlides"
+                    src="../Inmueble/Casa1/Casa01-5.jpeg"
+                    style="width:100%"
+                />
+                <img
+                    class="mySlides"
+                    src="../Inmueble/Casa1/Casa01-6.jpeg"
+                    style="width:100%"
+                />
+                <img
+                    class="mySlides"
+                    src="../Inmueble/Casa1/Casa01-7.jpeg"
+                    style="width:100%"
+                />
+                <div
+                    class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
+                    style="width:100%"
+                >
+                    <div
+                        class="w3-left w3-hover-text-khaki"
+                        onclick="plusDivs(-1)"
+                    >
+                        &#10094;
+                    </div>
+                    <div
+                        class="w3-right w3-hover-text-khaki"
+                        onclick="plusDivs(1)"
+                    >
+                        &#10095;
+                    </div>
+                    <span
+                        class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentDiv(1)"
+                    ></span>
+                    <span
+                        class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentDiv(2)"
+                    ></span>
+                    <span
+                        class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentDiv(3)"
+                    ></span>
+                    <span
+                        class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentDiv(4)"
+                    ></span>
+                    <span
+                        class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentDiv(5)"
+                    ></span>
+                    <span
+                        class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentDiv(6)"
+                    ></span>
+                    <span
+                        class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentDiv(7)"
+                    ></span>
+                </div>
+            </div>
+            
+            
+            <div class="w3-margin w3-text-orange">
+                <h2>$50,000,000.00 millones</h2>
+            </div>
+            <!---INFORMACION DEL INMUEBLE--->
+            <div class="w3-row-padding w3-margin-bottom">
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-home fa-lg"></i>
+                            100m<sup>2</sup>
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-home fa-lg"></i>
+                            Casa de Lujo
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-bed fa-lg"></i>
+                            5 habitaciones
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-bath fa-lg"></i>
+                            2 baños
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-home fa-lg"></i>
+                            2 pisos
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-car fa-lg"></i>
+                            2 coches
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-garage fa-lg"></i>
+                            Estacionamiento techado
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-home fa-lg"></i>
+                            Fraccionamiento
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-policeman fa-lg"></i>
+                            Vigilancia
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-home fa-lg"></i>
+                            Sin Area verde
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-home fa-lg"></i>
+                            Cocina integral
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-home fa-lg"></i>
+                            Sala
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-utensils fa-lg"></i>
+                            Comedor
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-home fa-lg"></i>
+                            Cuarto de lavado
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-home fa-lg"></i>
+                            Area de servicio
+                        </label>
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16 ">
+                        <label>
+                            <i class="fa fa-tree fa-lg"></i>
+                            Jardin
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+                showDivs((slideIndex += n));
+            }
+
+            function currentDiv(n) {
+                showDivs((slideIndex = n));
+            }
+
+            function showDivs(n) {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                if (n > x.length) {
+                    slideIndex = 1;
+                }
+                if (n < 1) {
+                    slideIndex = x.length;
+                }
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(
+                        " w3-white",
+                        ""
+                    );
+                }
+                x[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " w3-white";
+            }
+        </script>
+    </body>
+</html>
