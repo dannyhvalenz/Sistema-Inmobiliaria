@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="../css/w3.css" />
         <link rel="stylesheet" href="../css/styles.css" />
         <style>
+            
             .mySlides {
                 display: none;
                 max-height: 300px;
@@ -43,12 +44,32 @@
             #icon {
                 max-height: 35px;
             }
+            /*OCULTAR SCROLLBAR SIN QUE DEJE DE FUNCIONAR*/
+            html {
+                overflow: scroll;
+                overflow-x: hidden;
+            }
+            ::-webkit-scrollbar {
+                width: 0px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #FF0000;
+            }
         </style>
     </head>
     <body>
         <form>
-            <header class="w3-container w3-orange w3-center w3-text-white">
-                <h1 class="w3-xlarge">VER INMUEBLE</h1>
+            <header class="w3-bar w3-orange w3-center w3-text-white">
+                <h1 class="w3-xlarge w3-bar-item w3-left">VER INMUEBLE</h1>
+                <button id="btnActualizar" class="w3-bar-item w3-hover-black w3-button w3-right" onclick="">
+                    Actualizar
+                    <i class="fa fa-edit fa-lg w3-text-white"></i>
+                </button>
+                <button class="w3-bar-item w3-hover-black w3-button w3-right" onclick="">
+                    Eliminar
+                    <i class="fa fa-trash fa-lg w3-text-white"></i>
+                </button>
             </header>
 
             <!---SLIDESHOW--->

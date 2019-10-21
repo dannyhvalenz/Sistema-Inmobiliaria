@@ -34,13 +34,14 @@
                         />
                     </div>
                 </div>
+                
                 <div class="w3-half w3-container">
                     <div class="w3-container w3-padding-16">
-                        <input
-                            class="w3-input w3-animate-input "
-                            type="text"
-                            placeholder="Tipo de propiedad"
-                        />
+                        <select name="TipoTransaccion" id="TipoTransaccion" class="selector" placeholder="El inmueble es para:">
+                            <option value="">Tipo de transaccion</option>
+                            <option value="Renta">Renta</option>
+                            <option value="Venta">Venta</option>
+                        </select>
                     </div>
                 </div>
                 <div class="w3-half w3-container">
@@ -61,15 +62,7 @@
                         />
                     </div>
                 </div>
-                <div class="w3-third w3-container">
-                    <div class="w3-container w3-padding-16">
-                        <input
-                            class="w3-input w3-animate-input "
-                            type="text"
-                            placeholder="Año de construcción"
-                        />
-                    </div>
-                </div>
+                
                 <div class="w3-third w3-container">
                     <div class="w3-container w3-padding-16">
                         <input
@@ -106,16 +99,25 @@
                         />
                     </div>
                 </div>
-            </div>
-
-            <div class="w3-bar-item">
-                <p class="p_selector">Tipo de propiedad:</p>
-                <select name="Tipo_propiedad" class="selector" placeholder="El inmueble es para:">
-                    <option value="Renta">Renta</option>
-                    <option value="Venta">Venta</option>
-                </select>
-            </div>
-            <div class="w3-display-bottommiddle w3-margin w3-container">
+                <div class="w3-third w3-container">
+                    <!--<p class="p_selector">Tipo de inmueble:</p>--->
+                    <select name="TipoInmueble" id="TipoInmueble" class="selector" placeholder="El inmueble es:" onchange="w3_open_inmueble()">
+                        <option value="Index">Tipo de inmueble:</option>
+                        <option value="Casa">Casa</option>
+                        <option value="Departamento">Departamento</option>
+                        <option value="Edificio">Edificio</option>
+                        <option value="Local">Local</option>
+                        <option value="Oficina">Oficina</option>
+                        <option value="Terreno">Terreno</option>
+                    </select>
+                </div>
+            </div>  
+            <div class="w3-container" id="divTipoPropiedad">
+                <div class="contenedor" id="contenido" >
+                    <object></object>
+                </div>
+            </div>  
+            <div class="w3-margin w3-container" style="align-items: center;">
                 <div class="w3-bar">
                     <button class="w3-button w3-red" id="btnCancelar">
                         <i class="fa fa-times"></i>&#9;Cancelar
@@ -127,5 +129,75 @@
             </div>
         </form>
     </body>
-    <script></script>
+    <script>
+            
+        function w3_open_inmueble() {
+            var selectorInmueble = document.getElementById("TipoInmueble");
+            var tipoInmueble = selectorInmueble.options[selectorInmueble.selectedIndex].text;
+            
+            switch (tipoInmueble) {
+                case "Index":   
+                    document.getElementById("divTipoPropiedad").style.visibility = "hidden";
+                    break;
+                case "Casa":
+                    document.getElementById("divTipoPropiedad").style.display = "block";
+                    document.getElementById("divTipoPropiedad").style.width = "100%";
+                    document.getElementById("divTipoPropiedad").style.height = "100vh";
+                    document.getElementById("divTipoPropiedad").style.visibility = "visible";
+                    
+                    document.getElementById("divTipoPropiedad").innerHTML =
+                        '<object type="text/html" data="formulario_casa.html" height="100%" width="100%"></object>';
+                    break;
+                case "Departamento":
+                    document.getElementById("divTipoPropiedad").style.display = "block";
+                    document.getElementById("divTipoPropiedad").style.width = "100%";
+                    document.getElementById("divTipoPropiedad").style.height = "100vh";
+                    document.getElementById("divTipoPropiedad").style.visibility = "visible";
+                    
+                    document.getElementById("divTipoPropiedad").innerHTML =
+                    '<object type="text/html" data="formulario_departamento.html" height="100%" width="100%" class=""></object>';
+                    break;
+                case "Edificio":
+                    document.getElementById("divTipoPropiedad").style.display = "block";
+                    document.getElementById("divTipoPropiedad").style.width = "100%";
+                    document.getElementById("divTipoPropiedad").style.height = "100vh";
+                    document.getElementById("divTipoPropiedad").style.visibility = "visible";
+                    
+                    document.getElementById("divTipoPropiedad").innerHTML =
+                    '<object type="text/html" data="formulario_edificio.html" height="100%" width="100%" class=""></object>';
+                    break;
+                case "Local":
+                    document.getElementById("divTipoPropiedad").style.display = "block";
+                    document.getElementById("divTipoPropiedad").style.width = "100%";
+                    document.getElementById("divTipoPropiedad").style.height = "100vh";
+                    document.getElementById("divTipoPropiedad").style.visibility = "visible";
+                    
+                    document.getElementById("divTipoPropiedad").innerHTML =
+                        '<object type="text/html" data="formulario_local.html" height="100%" width="100%" class=""></object>';
+                    break;
+                case "Oficina":
+                    document.getElementById("divTipoPropiedad").style.display = "block";
+                    document.getElementById("divTipoPropiedad").style.width = "100%";
+                    document.getElementById("divTipoPropiedad").style.height = "100vh";
+                    document.getElementById("divTipoPropiedad").style.visibility = "visible";
+                    
+                    document.getElementById("divTipoPropiedad").innerHTML =
+                    '<object type="text/html" data="formulario_oficina.html" height="100%" width="100%" class=""></object>';
+                    break;
+                case "Terreno":
+                    document.getElementById("divTipoPropiedad").style.display = "block";
+                    document.getElementById("divTipoPropiedad").style.width = "100%";
+                    document.getElementById("divTipoPropiedad").style.height = "100vh";
+                    document.getElementById("divTipoPropiedad").style.visibility = "visible";
+                    
+                    document.getElementById("divTipoPropiedad").innerHTML =
+                    '<object type="text/html" data="formulario_terreno.html" height="100%" width="100%" class=""></object>';
+                    break;    
+            }
+        }
+
+        function w3_close_inmueble() {
+            document.getElementById("divAdmin").style.display = "none";
+        }   
+    </script>
 </html>
