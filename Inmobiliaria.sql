@@ -109,7 +109,7 @@ CREATE TABLE `Inmobiliaria.Departamento` (
 -- Table structure for Edificio
 -- ----------------------------
 DROP TABLE IF EXISTS `Inmobiliaria.Edificio`;
-CREATE TABLE `Edificio` (
+CREATE TABLE `Inmobiliaria.Edificio` (
   `idEdificio` int(11) NOT NULL,
   `idInmueble` int(11) NOT NULL,
   `metrosConstruccion` varchar(255) NOT NULL,
@@ -142,7 +142,7 @@ CREATE TABLE `Inmobiliaria.Inmueble` (
 -- Table structure for Local
 -- ----------------------------
 DROP TABLE IF EXISTS `Inmobiliaria.Local`;
-CREATE TABLE `Local` (
+CREATE TABLE `Inmobiliaria.Local` (
   `idLocal` int(11) NOT NULL,
   `idInmueble` int(11) NOT NULL,
   `metrosCuadrados` varchar(255) NOT NULL,
