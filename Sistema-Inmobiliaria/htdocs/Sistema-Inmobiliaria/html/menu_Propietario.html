@@ -1,0 +1,103 @@
+ <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Propiedades</title>
+        <link
+            rel="stylesheet"
+            href="https://www.w3schools.com/w3css/4/w3.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="/Sistema-Inmobiliaria/css/w3.css" />
+        <link rel="stylesheet" href="/Sistema-Inmobiliaria/css/styles.css" />
+        <link rel="stylesheet" href="/Sistema-Inmobiliaria/css/menus.css" />
+
+        <!---SCRIPTS --->
+        <script type="application/javascript" src="/Sistema-Inmobiliaria/js/cerrarSesion.js"></script>
+
+    </head>
+    <body onload="cargarPropietarios()">
+        <!---BARRA SUPERIOR--->
+        <div class="w3-bar w3-dark-grey" id="barra_superior">
+            <button
+                class="w3-bar-item w3-button w3-medium"
+                onclick="w3_open_sidebar()"
+            >
+                ☰
+            </button>
+            <span class="w3-bar-item w3-mobile" id="mensaje">Inmobiliaria</span>
+            <button class="w3-bar-item w3-mobile w3-right w3-button" onclick="cerrarSesion()">
+                Cerrar Sesion
+                <i class="fa fa-sign-out fa-lg "></i>
+            </button>
+        </div>
+
+        <div
+            class="w3-sidebar w3-bar-block w3-card w3-animate-left"
+            style="display:none"
+            id="mySidebar"
+        >
+            <a href="/Sistema-Inmobiliaria/html/Inmueble/menu_Inmuebles.html" class="w3-bar-item w3-button w3-hover-black">
+                <i class="fa fa-home fa-lg "></i>
+                Inmuebles
+            </a>
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">
+                <i class="fa fa-key fa-lg "></i>
+                Propietarios
+            </a>
+            <a href="/Sistema-Inmobiliaria/html/Cliente/menu_Clientes.html" class="w3-bar-item w3-button w3-hover-black">
+                <i class="fa fa-user fa-lg "></i>
+                Clientes
+            </a>
+            <button
+                class="w3-bar-item w3-button w3-large w3-display-bottomleft"
+                onclick="w3_close_sidebar()"
+            >
+                Close &times;
+            </button>
+        </div>
+
+        <!---MAIN--->
+        <div id="main">
+            <div class="visualizarPropiedades w3-left" id="divVisualizar">
+                <div class="w3-bar w3-white w3-border-gray w3-margin-left">
+                    <span>
+                        <input type="search" placeholder="Buscar Propietario" class="w3-bar-item w3-input w3-left" id="busqueda" onkeyup="buscar()">
+                        <label class="w3-bar-item w3-medium w3-left" id="btnBuscar">
+                                <i class="fa fa-search fa-lg w3-text-orange fa-flip-horizontal"></i>
+                        </label>
+                        <button
+                            class="w3-bar-item w3-button w3-medium w3-right w3-margin-right"
+                            onclick="w3_open_registro()">
+                            Nuevo
+                            <i
+                                class="fa fa-plus-circle fa-lg w3-text-orange"
+                            ></i>
+                        </button>
+                    </span>
+                </div>
+                <div id="box">
+                    <h1 id="titulo" class="w3-text-orange">CARGANDO</h1>
+                </div>
+            </div>
+
+            <div class="w3-right " id="divAdmin">
+                <div class="contenedor" id="contenido">
+                    <object></object>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="application/javascript" src="/Sistema-Inmobiliaria/js/menu_propietario.js"></script>
+    <script type="application/javascript" src="/Sistema-Inmobiliaria/js/animaciones.js"></script>
+    <script>
+        
+    </script>
+</html>

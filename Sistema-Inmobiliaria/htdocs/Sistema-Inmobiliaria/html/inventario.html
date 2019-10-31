@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Buscar Propiedad</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://www.w3schools.com/w3css/4/w3.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="/Inmobiliaria/css/w3.css" />
+        <link rel="stylesheet" href="/Inmobiliaria/css/styles.css" />
+    </head>
+    <body>
+        <div class="w3-bar w3-black w3-opacity">
+            <span class="w3-bar-item w3-mobile">
+                <a href="index.html" class="w3-bar-item w3-button w3-mobile">
+                    <img
+                        src="/Inmobiliaria/img/logo.svg"
+                        alt="Logo"
+                        id="logo_inventario"
+                        class="w3-left"
+                    />
+                </a>
+            </span>
+            <span class="w3-bar-item w3-right w3-mobile w3-text-white">
+                <a href="http://localhost:8888/Inmobiliaria/html/iniciarSesion.html" class="w3-bar-item w3-mobile animoBorderLeftRight"
+                    >Iniciar Sesion</a
+                >
+            </span>
+            <span class="w3-bar-item w3-right w3-mobile w3-text-white">
+                <a href="#" class="w3-bar-item w3-mobile animoBorderLeftRight"
+                    >Propiedades</a
+                >
+            </span>
+            <span class="w3-bar-item w3-right w3-mobile w3-text-white">
+                <a href="#" class="w3-bar-item w3-mobile animoBorderLeftRight"
+                    >Nosotros</a
+                >
+            </span>
+        </div>
+        <div
+            class="w3-container w3-cell-row w3-section w3-margin-left w3-margin-right w3-padding-16"
+        >
+            <div class="w3-cell">
+                <p class="p_selector">Ciudad:</p>
+                <select name="Ciudad" class="selector_inventario">
+                    <option value="Xalapa">Xalapa</option>
+                    <option value="Veracruz">Veracruz</option>
+                    <option value="Cordoba">Cordoba</option>
+                    <option value="Boca_del_Rio">Boca del Rio</option>
+                </select>
+            </div>
+            <div class="w3-cell">
+                <p class="p_selector">Colonia:</p>
+                <select name="Colonia" class="selector_inventario">
+                    <option value="Centro">Centro</option>
+                    <option value="Animas">Animas</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <div class="w3-cell">
+                <p class="p_selector">Tipo de propiedad:</p>
+                <select name="Tipo_propiedad" class="selector_inventario">
+                    <option value="Casa">Casa</option>
+                    <option value="Departamento">Departamento</option>
+                    <option value="Terreno">Terreno</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <div class="w3-cell">
+                <p class="p_selector">Recámaras:</p>
+                <input
+                    type="number"
+                    min="0"
+                    max="7"
+                    value="2"
+                    class="spinner_recamaras"
+                />
+            </div>
+            <div class="w3-cell">
+                <p class="p_selector">Rango de precios:</p>
+                <input
+                    type="number"
+                    name="precio_min"
+                    value="50000"
+                    class="rango_precios"
+                />
+                <input
+                    type="number"
+                    name="precio_max"
+                    value="100000000"
+                    class="rango_precios"
+                />
+            </div>
+            <div class="w3-cell w3-cell-middle">
+                <input type="submit" class="btn_buscar w3-right" />
+            </div>
+        </div>
+
+        <div class="w3-cell-row" id="contenedor">
+            <div id="ordenar_por" class="w3-left w3-white w3-cell w3-container">
+                <h3 class="w3-center">Ordenar por</h3>
+                <div class="w3-margin-left">
+                    <input
+                        id="option-one"
+                        name="radio"
+                        value="one"
+                        checked="checked"
+                        type="radio"
+                    />
+                    <label for="option-one">
+                        <span></span> Precio Ascendente
+                    </label>
+                </div>
+                <div class="w3-margin-left">
+                    <input
+                        id="option-two"
+                        name="radio"
+                        value="two"
+                        type="radio"
+                    />
+                    <label for="option-two">
+                        <span></span> Precio Descendente
+                    </label>
+                </div>
+            </div>
+            <div id="lista-inventario" class="w3-right w3-green w3-cell w3-container">
+                <div id="lista_replace" class="w3-row w3-white w3-third w3-padding-small">
+                    <div id="contenedor_propiedad" class="w3-white">
+                        <div class="w3-card">
+                            <img
+                                class="w3-right w3-round w3-image " src="/Inmobiliaria/img/085a65681e4046398692b4f0bf58b1a0.jpg"
+                            />
+                            <h4 class="w3-margin-left">Monterosso</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

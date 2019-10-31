@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.inicioSesion {
+    background-image: url("/Inmobiliaria/img/fondo.jpg");
+    min-height: 480px;
+}
+
+#login {
+    background-color: white;
+}

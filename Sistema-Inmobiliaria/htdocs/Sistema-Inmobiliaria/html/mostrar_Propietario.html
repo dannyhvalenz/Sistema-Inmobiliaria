@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Actualizar propietario</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+        rel="stylesheet"
+    />
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/Sistema-Inmobiliaria/css/w3.css" />
+    <link rel="stylesheet" href="/Sistema-Inmobiliaria/css/inicioSesion.css" />
+
+    <!-- Scripts -->
+    <script type="application/javascript" src="http://localhost:8888/Sistema-Inmobiliaria/js/menu_propietario.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 100vh; 
+            width:100%;
+        }
+        form {
+            height: 100%; 
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <form class="w3-card-4">
+        <header class="w3-container w3-orange w3-center ">
+            <h1 class="w3-xxlarge w3-text-white">MOSTRAR PROPIETARIO</h1>
+        </header>
+        <div class="w3-bar w3-right-align">
+            <button type="button" class="w3-button w3-hover-blue w3-text-blue" id="btnActualizar" onclick="clickActualizar()" title="Actualizar">
+                <i class="fa fa-edit"></i>&#9;Actualizar
+            </button>
+            <button type="button" class="w3-button w3-hover-blue w3-text-blue" id="btnEliminarPropietario" onclick="eliminarPropietario()" title="Eliminar">
+                <i class="fa fa-trash"></i>&#9;Eliminar
+            </button>
+        </div>
+
+        <div class="w3-row-padding w3-margin-bottom">
+            <div class="w3-half w3-container">
+                <div class="w3-container w3-padding-16 ">
+                    <label><b>Nombre</b></label>
+                    <input
+                        class="w3-input w3-animate-input w3-bar-item"
+                        type="text"
+                        placeholder="Nombre"
+                        id="nombre_mostrar"
+                        disabled
+                    />
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="w3-container w3-padding-16 ">
+                    <label><b>Apellido Paterno</b></label>
+                    <input
+                        class="w3-input w3-animate-input w3-bar-item"
+                        type="text"
+                        placeholder="Apellido Paterno"
+                        id="apellidoP_mostrar"
+                        disabled
+                    />
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="w3-container w3-padding-16 ">
+                    <label><b>Apellido Materno</b></label>
+                    <input
+                        class="w3-input w3-animate-input w3-bar-item"
+                        type="text"
+                        placeholder="Apellido Materno"
+                        id="apellidoM_mostrar"
+                        disabled
+                    />
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="w3-container w3-padding-16 ">
+                    <label><b>Celular</b></label>
+                    <input
+                        class="w3-input w3-animate-input w3-bar-item"
+                        type="number"
+                        min="10" max="10"
+                        placeholder="Celular"
+                        id="celular_mostrar"
+                        disabled
+                    />
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="w3-container w3-padding-16 ">
+                    <label><b>Dirección</b></label>
+                    <input
+                        class="w3-input w3-animate-input w3-bar-item"
+                        type="text"
+                        placeholder="Direccion"
+                        id="direccion_mostrar"
+                        disabled
+                    />
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="w3-container w3-padding-16 ">
+                    <label><b>Correo</b></label>
+                    <input
+                        class="w3-input w3-animate-input w3-bar-item"
+                        type="email"
+                        placeholder="Correo electronico"
+                        id="correo_mostrar"
+                        disabled
+                    />
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        import { cargarPropietarios } from 'menu_propietario.js';
+        /* DECLARACION DE VARIABLES */
+        var nombre;
+        var apellidoP;
+        var apellidoM;
+        var celular;
+        var direccion;
+        var correo;
+        var idPropietario;
+
+        var link;
+        variable = (new URL(document.location)).searchParams;
+        if (variable.get("idPropietario") != null){
+            idPropietario = variable.get("idPropietario");
+            alert(idPropietario);
+            cargarPropietario(idPropietario);
+            link = variable.get("link");
+
+        }
+
+        function w3_open_actualizar() {
+            var path = "actualizar_Propietario.html?idPropietario="+idPropietario;
+            
+            document.getElementById("divAdmin").style.display = "block";
+            document.getElementById("divVisualizar").style.width = "50%";
+            document.getElementById("divAdmin").style.width = "50%";
+            document.getElementById("divAdmin").style.height = "100vh";
+            document.getElementById("divAdmin").style.display = "block";
+            document.getElementById("divAdmin").style.visibility = "visible";
+
+            window.open(path);
+
+            var divAdmin = document.getElementById("divAdmin").innerHTML;
+            var btnCancelar = divAdmin.getElementById("btnCancelarActualizar");
+            alert(btnCancelar.textContent);
+        }
+
+        function cargarPropietario(id){
+            var xhr = new XMLHttpRequest();
+            idPropietario = id;
+            /* CREACION DEL QUERY */
+            var q = "idPropietario="+idPropietario;
+
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    var respuesta = xhr.responseXML;
+                    console.log(xhr.responseXML);
+                    
+                    var x = respuesta.getElementsByTagName("resultado");
+
+                    var titulo = x[0].getElementsByTagName("titulo")[0].textContent;
+                    
+                    if (titulo == "Carga exitosa"){
+                        nombre = x[0].getElementsByTagName("nombre")[0].textContent;
+                        document.getElementById("nombre_mostrar").value = nombre;
+                        apellidoP = x[0].getElementsByTagName("apellidoP")[0].textContent;
+                        document.getElementById("apellidoP_mostrar").value = apellidoP;
+                        apellidoM = x[0].getElementsByTagName("apellidoM")[0].textContent;
+                        document.getElementById("apellidoM_mostrar").value = apellidoM;
+                        celular = x[0].getElementsByTagName("celular")[0].textContent;
+                        document.getElementById("celular_mostrar").value = celular;
+                        direccion = x[0].getElementsByTagName("direccion")[0].textContent;
+                        document.getElementById("direccion_mostrar").value = direccion;
+                        correo = x[0].getElementsByTagName("correo")[0].textContent;
+                        document.getElementById("correo_mostrar").value = correo;
+                    } else if (titulo == "Error de conexion"){
+                        alert("Error de conexion con la base de datos");
+                    }
+                }
+            }
+
+            xhr.open("POST", "http://localhost:8888/cgi-bin/Sistema-Inmobiliaria/mostrarPropietarioInfo.pl", true);
+            xhr.setRequestHeader(
+                'Content-type', 
+                'application/x-www-form-urlencoded'
+            ); 
+            xhr.responseType = "document";
+            xhr.send(q);
+        }
+
+        function eliminarPropietario(){
+            var q = "idPropietario="+idPropietario;
+
+            console.log("Eliminar Propietario");
+            var xhr = new XMLHttpRequest();
+            var titulo;
+            var contenido;
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    var respuesta = xhr.responseXML;
+                    console.log(xhr.responseXML);
+
+                    var x = respuesta.getElementsByTagName("resultado");
+
+                    var titulo = x[0].getElementsByTagName("titulo")[0].textContent;
+
+                    var contenido = x[0].getElementsByTagName("contenido")[0].textContent;
+
+                    if (titulo == "Exito al eliminar"){
+                        alert("Se ha eliminado al propietario correctamente");
+                    } else if (titulo == "Error de conexion"){
+                        alert(contenido);
+                    }
+                }
+            }
+
+            xhr.open("POST", "http://localhost:8888/cgi-bin/Sistema-Inmobiliaria/eliminarPropietario.pl", true);
+            xhr.setRequestHeader(
+                'Content-type', 
+                'application/x-www-form-urlencoded'
+            ); 
+            xhr.responseType = "document";
+            xhr.send(q);
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://www.w3schools.com/w3css/4/w3.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="/Sistema-Inmobiliaria/css/w3.css" />
+        <link rel="stylesheet" href="/Sistema-Inmobiliaria/css/styles.css" />
+
+        <title>Inmobiliaria</title>
+    </head>
+    <body class="index">
+        <div class="w3-bar">
+            <span class="w3-bar-item w3-mobile">
+                <a href="index.html" class="w3-bar-item w3-button w3-mobile">
+                    <img src="/Sistema-Inmobiliaria/img/logo.svg" alt="Logo" id="logo" />
+                </a>
+            </span>
+            <span class="w3-bar-item w3-right w3-mobile w3-text-white">
+                <a href="iniciarSesion.html" class="w3-bar-item w3-mobile animoBorderLeftRight"
+                    >Iniciar Sesion</a
+                >
+            </span>
+            <span class="w3-bar-item w3-right w3-mobile w3-text-white">
+                <a href="#" class="w3-bar-item w3-mobile animoBorderLeftRight"
+                    >Propiedades</a
+                >
+            </span>
+            <span class="w3-bar-item w3-right w3-mobile w3-text-white">
+                <a href="#" class="w3-bar-item w3-mobile animoBorderLeftRight"
+                    >Nosotros</a
+                >
+            </span>
+        </div>
+
+        <div class="w3-white w3-card-4 w3-display-middle w3-round-xlarge">
+            <h1 class="w3-text-shadow w3-center">
+                Buscar Propiedades
+            </h1>
+            <div class="w3-center">
+                <form class="w3-bar">
+                    <div class="w3-bar-item">
+                        <p class="p_selector">Ciudad:</p>
+                        <select name="Ciudad" class="selector">
+                            <option value="Xalapa">Xalapa</option>
+                            <option value="Veracruz">Veracruz</option>
+                            <option value="Cordoba">Cordoba</option>
+                            <option value="Boca_del_Rio">Boca del Rio</option>
+                        </select>
+                    </div>
+                    <div class="w3-bar-item">
+                        <p class="p_selector">Colonia:</p>
+                        <select name="Colonia" class="selector">
+                            <option value="Centro">Centro</option>
+                            <option value="Animas">Animas</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="w3-bar-item">
+                        <p class="p_selector">Tipo de propiedad:</p>
+                        <select name="Tipo_propiedad" class="selector">
+                            <option value="Casa">Casa</option>
+                            <option value="Departamento">Departamento</option>
+                            <option value="Terreno">Terreno</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="w3-bar-item">
+                        <p class="p_selector">Número de recámaras:</p>
+                        <input
+                            type="number"
+                            min="0"
+                            max="7"
+                            value="2"
+                            class="spinner_recamaras"
+                        />
+                    </div>
+                    <div class="w3-bar-item">
+                        <p class="p_selector">Rango de precios:</p>
+                        <input
+                            type="number"
+                            name="precio_min"
+                            value="50000"
+                            class="rango_precios"
+                        />
+                        <input
+                            type="number"
+                            name="precio_max"
+                            value="100000000"
+                            class="rango_precios"
+                        />
+                    </div>
+                </form>
+                <br />
+                <a href="inventario.html" class="btnSubmitIndex">
+                    Buscar
+                </a>
+            </div>
+        </div>
+    </body>
+</html>

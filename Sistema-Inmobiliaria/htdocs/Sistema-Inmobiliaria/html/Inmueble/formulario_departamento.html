@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Registro de propiedad</title>
+        <link
+            rel="stylesheet"
+            href="https://www.w3schools.com/w3css/4/w3.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="../../css/w3.css" />
+        <link rel="stylesheet" href="../../css/styles.css" />
+    </head>
+    <body>
+        <form>
+            <div class="w3-row-padding w3-margin-bottom">
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16">
+                        <input
+                            class="w3-input w3-animate-input "
+                            type="text"
+                            placeholder="Metros de construcción"
+                        />
+                    </div>
+                </div>
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16">
+                        <input
+                            class="w3-input w3-animate-input "
+                            type="text"
+                            placeholder="¿En que piso esta el departamento?"
+                        />
+                    </div>
+                </div>  
+                <div class="w3-half w3-container">
+                    <div class="w3-container w3-padding-16">
+                        <input
+                            class="w3-input w3-animate-input "
+                            type="text"
+                            placeholder="Espacio habitable"
+                        />
+                    </div>
+                </div>
+                
+                <div class="w3-half w3-container">
+                    <div class="w3-bar-item w3-container w3-padding-16">
+                        <p class="p_selector">Tipo de departamento:
+                        <select name="Tipo_casa" class="selector" placeholder="Tipo de casa:">
+                            <option value="InteresS">Interes social</option>
+                            <option value="Medio">Medio</option>
+                            <option value="Alto">Alto</option>
+                            <option value="lujo">De lujo</option>
+                        </select></p>
+                    </div>
+                </div> 
+                <div class="w3-half w3-container">
+                    <div class="w3-bar-item w3-container w3-padding-16">
+                        <p class="p_selector">Tipo de cocina:
+                        <select name="Tipo_cocina" class="selector" placeholder="Tipo de cocina:">
+                            <option value="CocinaIntegral">Cocina Integral</option>
+                            <option value="SinCocina">Sin Cocina</option>
+                        </select></p>
+                    </div>
+                </div> 
+            </div>
+            <form id="todo-list" class="w3-padding-16">
+                <h4>¿Con qué cosas cuenta el departamento?</h4>
+                <span class="todo-wrap w3-half">
+                    <input type="checkbox" name="atributosDepartamentos" value="Estacionamiento" id="Cochera"/>
+                        <label for="Cochera" class="todo w3-half">
+                            <i class="fa fa-check"></i>
+                            Estacionamiento
+                        </label>
+                        <input class="w3-input w3-half"
+                        type="text" id="inputNumCoches"
+                        placeholder="Num. coches" style="height: 37px;"/>
+                    
+                </span>
+                <span class="todo-wrap w3-half">
+                    <input type="checkbox" name="atributosDepartamentos" value="Estacionamiento_Techada" id="Cochera_Techada"/>
+                    <label for="Estacionamiento_Techada" class="todo">
+                        <i class="fa fa-check"></i>
+                        Estacionamiento techada
+                    </label>
+                </span>
+                <span class="todo-wrap w3-half">
+                    <input type="checkbox" name="atributosDepartamentos" value="Vigilancia" id="Vigilancia" disabled/>
+                    <label for="Vigilancia" class="todo">
+                        <i class="fa fa-check"></i>
+                        Cuenta con vigilancia
+                    </label>
+                </span>
+                
+                <span class="todo-wrap w3-half">
+                    <input type="checkbox" name="atributosDepartamentos" value="CuartoServicio" id="CuartoServicio"/>
+                    <label for="CuartoServicio" class="todo">
+                        <i class="fa fa-check"></i>
+                        Cuarto de servicio
+                    </label>
+                </span>
+                <span class="todo-wrap w3-half">
+                    <input type="checkbox" name="atributosDepartamentos" value="Sala" id="Sala"/>
+                    <label for="Sala" class="todo">
+                        <i class="fa fa-check"></i>
+                        Sala
+                    </label>
+                </span>
+                <span class="todo-wrap w3-half">
+                    <input type="checkbox" name="atributosDepartamentos" value="Comedor" id="Comedor"/>
+                    <label for="Comedor" class="todo">
+                        <i class="fa fa-check"></i>
+                        Comedor
+                    </label>
+                </span>
+                <span class="todo-wrap w3-half">
+                    <input type="checkbox" name="atributosDepartamentos" value="Jardin" id="Jardin"/>
+                    <label for="Jardin" class="todo">
+                        <i class="fa fa-check"></i>
+                        Jardin
+                    </label>
+                </span>
+                <span class="todo-wrap w3-half">
+                    <input type="checkbox" name="atributosDepartamentos" value="AreaLavado" id="AreaLavado"/>
+                    <label for="AreaLavado" class="todo">
+                        <i class="fa fa-check"></i>
+                        Area de lavado
+                    </label>
+                </span>
+                <span class="todo-wrap w3-half">
+                    <input type="checkbox" name="atributosDepartamentos" value="Bodega" id="Bodega"/>
+                    <label for="Bodega" class="todo">
+                        <i class="fa fa-check"></i>
+                        Bodega
+                    </label>
+                </span>
+            </form>
+            <div class="w3-container">
+                <div>
+                    
+                </div>
+            </div>
+        </form>
+    </body>
+    <script>
+        if(document.getElementById("Cochera").checked){
+            document.getElementById("Cochera_Techada").disabled = false;
+            document.getElementById("inputNumCoches").disabled = false;
+        } else {
+            document.getElementById("Cochera_Techada").disabled = true;
+            document.getElementById("inputNumCoches").disabled = true;
+        }
+    </script>
+</html>

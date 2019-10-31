@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registro de propiedad</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+        rel="stylesheet"
+    />
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/Sistema-Inmobiliaria/css/w3.css" />
+    <link rel="stylesheet" href="/Sistema-Inmobiliaria/css/inicioSesion.css" />
+
+    <!-- Scripts -->
+    <script type="application/javascript" src="/Sistema-Inmobiliaria/js/agregar_propietario.js"></script>
+        
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                height: 100vh; 
+                width:100%;
+            }
+            form {
+                height: 100%; 
+                width:100%;
+            }
+            #divBotones{
+                position: fixed;
+                bottom: 25px;
+                right: 25px;
+            }
+        </style>
+</head>
+<body>
+    <form class="w3-card-4">
+        <header class="w3-container w3-orange w3-center ">
+            <h1 class="w3-xxlarge w3-text-white" >REGISTRO DE PROPIETARIO</h1>
+        </header>
+
+        <div class="w3-row-padding w3-margin-bottom">
+            <div class="w3-half w3-container">
+                <div class="w3-container w3-padding-16 ">
+                    <input
+                        class="w3-input w3-animate-input w3-bar-item"
+                        type="text"
+                        placeholder="Nombre"
+                        id="txtnombre"
+                    />
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="w3-container w3-padding-16 ">
+                    <input
+                        class="w3-input w3-animate-input w3-bar-item"
+                        type="text"
+                        placeholder="Apellido Paterno"
+                        id="txtapellidoP"
+                    />
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="w3-container w3-padding-16 ">
+                    <input
+                        class="w3-input w3-animate-input w3-bar-item"
+                        type="text"
+                        placeholder="Apellido Materno"
+                        id="txtapellidoM"
+                    />
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="w3-container w3-padding-16 ">
+                    <input
+                        class="w3-input w3-animate-input w3-bar-item"
+                        type="number"
+                        min="10" max="10"
+                        placeholder="Celular"
+                        id="txtcelular"
+                    />
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="w3-container w3-padding-16 ">
+                    <input
+                        class="w3-input w3-animate-input w3-bar-item"
+                        type="text"
+                        placeholder="Direccion"
+                        id="txtdireccion"
+                    />
+                </div>
+            </div>
+            <div class="w3-half w3-container">
+                <div class="w3-container w3-padding-16 ">
+                    <input
+                        class="w3-input w3-animate-input w3-bar-item"
+                        type="email"
+                        placeholder="Correo electronico"
+                        id="txtcorreo"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-margin w3-container w3-center" id="divBotones">
+            <div class="w3-bar">
+                <button type="button" class="w3-button w3-red" id="btnCancelarPropietario" onclick="cerrarRegistro()">
+                    <i class="fa fa-times"></i>&#9;Cancelar
+                </button>
+                <button type="button" class="w3-button w3-green" id="btnGuardarPropietario" onclick="guardarPropietario()">
+                    <i class="fa fa-check"></i>&#9;Guardar
+                </button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
