@@ -2,7 +2,6 @@ var nombre;
 var apellidoP;
 var apellidoM;
 var celular;
-var direccion;
 var correo;
 var outerHTML;
 var idAsesor;
@@ -15,7 +14,7 @@ if (variable.get("idAsesor") != null){
     outerHTML = variable.get("link");
     outerHTML = outerHTML+"&nombre="+nombreAsesor;
 
-    history.replaceState({}, null, "/Sistema-Inmobiliaria/html/menu_Propietario.html");
+    history.replaceState({}, null, "/Sistema-Inmobiliaria/html/menu_Cliente.html");
     
 } else {
     alert("No se pudo recuperar la informacion de la base de datos");
@@ -27,30 +26,28 @@ function cerrarRegistro(){
     document.getElementById("txtapellidoP").value = '';
     document.getElementById("txtapellidoM").value = '';
     document.getElementById("txtcelular").value = '';
-    document.getElementById("txtdireccion").value = '';
     document.getElementById("txtcorreo").value = '';
 }
 
-function guardarPropietario(){
+function guardarCliente(){
     /* RECUPERAR DATOS DE LOS INPUT */
     var nombre = document.getElementById("txtnombre").value;
     var apellidoP = document.getElementById("txtapellidoP").value;
     var apellidoM = document.getElementById("txtapellidoM").value;
     var celular = document.getElementById("txtcelular").value;
-    var direccion = document.getElementById("txtdireccion").value;
     var correo = document.getElementById("txtcorreo").value;
     var idAsesor = "1";
 
     /* CREACION DEL QUERY */
-    var q = "nombre="+nombre+"&"+"apellidoP="+apellidoP+"&"+"apellidoM="+apellidoM+"&"+"celular="+celular+"&"+"direccion="+direccion+"&"+"correo="+correo+"&"+"idAsesor="+idAsesor;
+    var q = "nombre="+nombre+"&"+"apellidoP="+apellidoP+"&"+"apellidoM="+apellidoM+"&"+"celular="+celular+"&"+"correo="+correo+"&"+"idAsesor="+idAsesor;
     
     /* VALIDACION DE CAMPOS VACIOS */
-    if (nombre == null || nombre == "", apellidoP == null || apellidoP == "", apellidoM == null || apellidoM == "", celular == null || celular == "", direccion == null || direccion == "", correo == null || correo == "") {
+    if (nombre == null || nombre == "", apellidoP == null || apellidoP == "", apellidoM == null || apellidoM == "", celular == null || celular == "", correo == null || correo == "") {
         alert("Hay campos vacios");
     } else {
 
     /* EN CASO DE QUE NO HAYA CAMPOS VACIOS SE HACE EL REQUEST A LA BD POR MEDIO DEL ARCHIVO .PL */
-        console.log("Agregar Propietario");
+        console.log("Agregar cliente");
         var xhr = new XMLHttpRequest();
         var titulo;
         var contenido;
@@ -65,7 +62,7 @@ function guardarPropietario(){
 
                 var contenido = x[0].getElementsByTagName("contenido")[0].textContent;
 
-                if (titulo == "Nuevo propietario"){
+                if (titulo == "Nuevo cliente"){
                     alert(contenido);
                     window.open(outerHTML,"_parent");
                 } else if (titulo == "Error de conexion"){
@@ -74,7 +71,7 @@ function guardarPropietario(){
             }
         }
 
-        xhr.open("POST", "http://localhost:8888/cgi-bin/Sistema-Inmobiliaria/agregarPropietario.pl", true);
+        xhr.open("POST", "http://localhost:8888/cgi-bin/Sistema-Inmobiliaria/agregarCliente.pl", true);
         xhr.setRequestHeader(
             'Content-type', 
             'application/x-www-form-urlencoded'

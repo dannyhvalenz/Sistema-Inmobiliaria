@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Gestionar propietario</title>
+    <title>Registro de cliente</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="/Sistema-Inmobiliaria/css/inicioSesion.css" />
 
     <!-- Scripts -->
-    <script type="application/javascript" src="/Sistema-Inmobiliaria/js/gestionar_propietario.js"></script>
-
+    <script type="application/javascript" src="/Sistema-Inmobiliaria/js/agregar_cliente.js"></script>
+        
     <style>
         * {
             margin: 0;
@@ -37,22 +37,16 @@
         #divBotones{
             position: fixed;
             bottom: 25px;
+            right: 25px;
         }
     </style>
 </head>
 <body>
     <form class="w3-card-4">
         <header class="w3-container w3-orange w3-center ">
-            <h1 class="w3-xxlarge w3-text-white" id="titulo">MOSTRAR PROPIETARIO</h1>
+            <h1 class="w3-xxlarge w3-text-white" >REGISTRO DE CLIENTE</h1>
         </header>
-        <div class="w3-bar w3-right-align" id="divWhenMostrar">
-            <button type="button" class="w3-button w3-hover-blue w3-text-blue" id="btnActualizar" onclick="clickActualizar()" title="Actualizar">
-                <i class="fa fa-edit"></i>&#9;Actualizar
-            </button>
-            <button type="button" class="w3-button w3-hover-blue w3-text-blue" id="btnEliminarPropietario" onclick="clickEliminar()" title="Eliminar">
-                <i class="fa fa-trash"></i>&#9;Eliminar
-            </button>
-        </div>
+
         <div class="w3-row-padding w3-margin-bottom">
             <div class="w3-half w3-container">
                 <div class="w3-container w3-padding-16 ">
@@ -99,16 +93,6 @@
                 <div class="w3-container w3-padding-16 ">
                     <input
                         class="w3-input w3-animate-input w3-bar-item"
-                        type="text"
-                        placeholder="Direccion"
-                        id="txtdireccion"
-                    />
-                </div>
-            </div>
-            <div class="w3-half w3-container">
-                <div class="w3-container w3-padding-16 ">
-                    <input
-                        class="w3-input w3-animate-input w3-bar-item"
                         type="email"
                         placeholder="Correo electronico"
                         id="txtcorreo"
@@ -117,12 +101,12 @@
             </div>
         </div>
 
-        <div class="w3-margin w3-container w3-center" id="divWhenActualizar" style = "display: none">
+        <div class="w3-margin w3-container w3-center" id="divBotones">
             <div class="w3-bar">
-                <button type="button" class="w3-button w3-red w3-hover-blue" id="btnCancelarActualizar" onclick="clickCancelar()">
+                <button type="button" class="w3-button w3-red" id="btnCancelarCliente" onclick="cerrarRegistro()">
                     <i class="fa fa-times"></i>&#9;Cancelar
                 </button>
-                <button type="button" class="w3-button w3-green w3-hover-blue" id="btnGuardarActualizar" onclick="actualizarPropietario()">
+                <button type="button" class="w3-button w3-green" id="btnGuardarCliente" onclick="guardarCliente()">
                     <i class="fa fa-check"></i>&#9;Guardar
                 </button>
             </div>

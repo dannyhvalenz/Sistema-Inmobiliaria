@@ -4,28 +4,27 @@ var nombre;
 var apellidoP;
 var apellidoM;
 var celular;
-var direccion;
 var correo;
 var outerHTML;
-var idPropietario;
+var idCliente;
 var nombreAsesor;
 
 variable = (new URL(document.location)).searchParams;
-if (variable.get("idPropietario") != null){
-    idPropietario = variable.get("idPropietario");
+if (variable.get("idCliente") != null){
+    idCliente = variable.get("idCliente");
     nombreAsesor = variable.get("nombreAsesor");
     outerHTML = variable.get("link");
     
-    cargarPropietario(variable.get("idPropietario"));
+    cargarCliente(variable.get("idCliente"));
 
-    history.replaceState({}, null, "/Sistema-Inmobiliaria/html/menu_Propietario.html");
+    history.replaceState({}, null, "/Sistema-Inmobiliaria/html/menu_Cliente.html");
     
 } else {
     alert("No se pudo recuperar la informacion de la base de datos");
 }
 
 function clickActualizar(){
-    document.getElementById("titulo").innerHTML = "ACTUALIZAR PROPIETARIO";
+    document.getElementById("titulo").innerHTML = "ACTUALIZAR CLIENTE";
     document.getElementById("divWhenMostrar").style.display = "none";
     document.getElementById("divWhenActualizar").style.display = "block";
 
@@ -33,12 +32,11 @@ function clickActualizar(){
     document.getElementById("txtapellidoP").removeAttribute("disabled");
     document.getElementById("txtapellidoM").removeAttribute("disabled");
     document.getElementById("txtcelular").removeAttribute("disabled");
-    document.getElementById("txtdireccion").removeAttribute("disabled");
     document.getElementById("txtcorreo").removeAttribute("disabled");
 }
 
 function clickCancelar(){
-    document.getElementById("titulo").innerHTML = "MOSTRAR PROPIETARIO";
+    document.getElementById("titulo").innerHTML = "MOSTRAR CLIENTE";
     document.getElementById("divWhenMostrar").style.display = "block";
     document.getElementById("divWhenActualizar").style.display = "none";
     
@@ -46,22 +44,20 @@ function clickCancelar(){
     document.getElementById("txtapellidoP").setAttribute("disabled","disabled");
     document.getElementById("txtapellidoM").setAttribute("disabled","disabled");
     document.getElementById("txtcelular").setAttribute("disabled","disabled");
-    document.getElementById("txtdireccion").setAttribute("disabled","disabled");
     document.getElementById("txtcorreo").setAttribute("disabled","disabled");
 
     document.getElementById("txtnombre").value = nombre;
     document.getElementById("txtapellidoP").value = apellidoP;
     document.getElementById("txtapellidoM").value = apellidoM;
     document.getElementById("txtcelular").value = celular;
-    document.getElementById("txtdireccion").value = direccion;
     document.getElementById("txtcorreo").value = correo;
 }
 
-function cargarPropietario(id){
+function cargarCliente(id){
     var xhr = new XMLHttpRequest();
-    idPropietario = id;
+    idCliente = id;
     /* CREACION DEL QUERY */
-    var q = "idPropietario="+idPropietario;
+    var q = "idCliente="+idCliente;
 
     xhr.onreadystatechange = function(){
         if(xhr.readyState == 4){
@@ -89,10 +85,6 @@ function cargarPropietario(id){
                 document.getElementById("txtcelular").value = celular;
                 document.getElementById("txtcelular").setAttribute("disabled","disabled");
 
-                direccion = x[0].getElementsByTagName("direccion")[0].textContent;
-                document.getElementById("txtdireccion").value = direccion;
-                document.getElementById("txtdireccion").setAttribute("disabled","disabled");
-
                 correo = x[0].getElementsByTagName("correo")[0].textContent;
                 document.getElementById("txtcorreo").value = correo;
                 document.getElementById("txtcorreo").setAttribute("disabled","disabled");
@@ -102,7 +94,7 @@ function cargarPropietario(id){
         }
     }
 
-    xhr.open("POST", "http://localhost:8888/cgi-bin/Sistema-Inmobiliaria/mostrarPropietarioInfo.pl", true);
+    xhr.open("POST", "http://localhost:8888/cgi-bin/Sistema-Inmobiliaria/mostrarClienteInfo.pl", true);
     xhr.setRequestHeader(
         'Content-type', 
         'application/x-www-form-urlencoded'
@@ -115,13 +107,12 @@ function ShowResults(value) {
     alert(value);
  }
 
-function actualizarPropietario(){
+function actualizarCliente(){
     /* RECUPERAR DATOS DE LOS INPUT */
     nombre = document.getElementById("txtnombre").value;
     apellidoP = document.getElementById("txtapellidoP").value;
     apellidoM = document.getElementById("txtapellidoM").value;
     celular = document.getElementById("txtcelular").value;
-    direccion = document.getElementById("txtdireccion").value;
     correo = document.getElementById("txtcorreo").value;
     var camposVacios = new Boolean(false);
     
@@ -136,8 +127,8 @@ function actualizarPropietario(){
 
     /* CREACION DEL QUERY */
     var q = "nombre="+nombre+"&"+"apellidoP="+apellidoP+"&"+"apellidoM="+apellidoM+"&"
-        +"celular="+celular+"&"+"direccion="+direccion+"&"+"correo="+correo+"&"
-        +"idPropietario="+idPropietario;
+        +"celular="+celular+"&"+"correo="+correo+"&"
+        +"idCliente="+idCliente;
 
     /* VALIDACION DE CAMPOS VACIOS */
     if (camposVacios == true) {
@@ -146,7 +137,7 @@ function actualizarPropietario(){
 
     /* EN CASO DE QUE NO HAYA CAMPOS VACIOS SE HACE EL REQUEST A LA BD POR MEDIO DEL ARCHIVO .PL */
         
-        console.log("Actualizar Propietario");
+        console.log("Actualizar Cliente");
         var xhr = new XMLHttpRequest();
         var titulo;
         var contenido;
@@ -159,11 +150,11 @@ function actualizarPropietario(){
                 titulo = x[0].getElementsByTagName("titulo")[0].textContent;
                 contenido = x[0].getElementsByTagName("contenido")[0].textContent;
 
-                if (titulo == "Propietario actualizado"){
+                if (titulo == "Cliente actualizado"){
                     alert(contenido);
                     outerHTML = outerHTML+"&nombre="+nombreAsesor;
                     window.open(outerHTML,"_parent");
-                    document.getElementById("titulo").innerHTML = "MOSTRAR PROPIETARIO";
+                    document.getElementById("titulo").innerHTML = "MOSTRAR CLIENTE";
                     document.getElementById("divWhenMostrar").style.display = "block";
                     document.getElementById("divWhenActualizar").style.display = "none";
                     
@@ -171,14 +162,12 @@ function actualizarPropietario(){
                     document.getElementById("txtapellidoP").setAttribute("disabled","disabled");
                     document.getElementById("txtapellidoM").setAttribute("disabled","disabled");
                     document.getElementById("txtcelular").setAttribute("disabled","disabled");
-                    document.getElementById("txtdireccion").setAttribute("disabled","disabled");
                     document.getElementById("txtcorreo").setAttribute("disabled","disabled");
 
                     document.getElementById("txtnombre").value = nombre;
                     document.getElementById("txtapellidoP").value = apellidoP;
                     document.getElementById("txtapellidoM").value = apellidoM;
                     document.getElementById("txtcelular").value = celular;
-                    document.getElementById("txtdireccion").value = direccion;
                     document.getElementById("txtcorreo").value = correo;
                 } else if (titulo == "Error de conexion"){
                     alert(contenido);
@@ -186,7 +175,7 @@ function actualizarPropietario(){
             }
         }
 
-        xhr.open("POST", "http://localhost:8888/cgi-bin/Sistema-Inmobiliaria/modificarPropietario.pl", true);
+        xhr.open("POST", "http://localhost:8888/cgi-bin/Sistema-Inmobiliaria/modificarCliente.pl", true);
         xhr.setRequestHeader(
             'Content-type', 
             'application/x-www-form-urlencoded'
@@ -198,9 +187,9 @@ function actualizarPropietario(){
 
 function clickEliminar(){
     alert("eliminar");
-    var q = "idPropietario="+idPropietario;
+    var q = "idCliente="+idCliente;
     alert(q);
-    console.log("Eliminar Propietario");
+    console.log("Eliminar Cliente");
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4 && xhr.status == 200){
@@ -225,7 +214,7 @@ function clickEliminar(){
             }
         }
 
-        xhr.open("POST", "http://localhost:8888/cgi-bin/Sistema-Inmobiliaria/eliminarPropietario.pl", true);
+        xhr.open("POST", "http://localhost:8888/cgi-bin/Sistema-Inmobiliaria/eliminarCliente.pl", true);
         xhr.setRequestHeader(
             'Content-type', 
             'application/x-www-form-urlencoded'

@@ -26,7 +26,7 @@ my $idAsesor = $query->param("idAsesor");
 # https://metacpan.org/pod/DBD::mysql
 my $dbh = conectar();
 # Realizar el query sql
-my $sth = $dbh->prepare("SELECT nombre,apellidoP,apellidoM,correo,celular,direccion,idPropietario FROM Propietario WHERE idAsesor=?");
+my $sth = $dbh->prepare("SELECT * FROM Cliente WHERE idAsesor=?");
 $sth->execute($idAsesor) or die $DBI::errstr;
 
 # colocar el charset para imprimir correctamente los caracteres -- en este caso vamos a cambiar por el XML --
@@ -48,18 +48,17 @@ $writer->startTag('resultado');
 # https://metacpan.org/pod/release/RUDY/DBD-mysql-2.9008/lib/DBD/mysql.pm#Class_Methods
 if ($sth->rows gt 0){
     while (my $row = $sth->fetchrow_hashref){
-        
         my $nombre = $row->{nombre};
         my $apellidoP = $row->{apellidoP};
         my $apellidoM = $row->{apellidoM};
         my $nombreCompleto = "$nombre $apellidoP $apellidoM";
         $writer->startTag('div', class => 'w3-row w3-white w3-half w3-padding-small');
         $writer->startTag('div', class => 'w3-white', id => 'contenedor_propiedad');
-        $writer->startTag('div', class => 'w3-card w3-hover-light-grey', onclick => "w3_open_actualizar(this.id)", id => "$row->{idPropietario}" );
+        $writer->startTag('div', class => 'w3-card w3-hover-light-grey', onclick => "w3_open_actualizar(this.id)", id => "$row->{idCliente}" );
         $writer->dataElement('h4', $nombreCompleto, class => "w3-margin-left w3-margin-right");
         $writer->dataElement('label', "celular: ", class => "w3-margin-left");
         $writer->dataElement('label', $row->{celular}, class => "w3-margin-left");
-        $writer->dataElement('label', $row->{idPropietario}, class => "w3-margin-right w3-text-white w3-right");
+        $writer->dataElement('label', $row->{idCliente}, class => "w3-margin-right w3-text-white w3-right");
         $writer->endTag('div');
         $writer->endTag('div');
         $writer->endTag('div');

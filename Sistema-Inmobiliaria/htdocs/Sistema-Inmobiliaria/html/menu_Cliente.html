@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -20,13 +20,12 @@
         <link rel="stylesheet" href="/Sistema-Inmobiliaria/css/menus.css" />
 
     </head>
-    <body onload="cargarPropietarios()">
+    <body onload="cargarClientes()">
         <!---BARRA SUPERIOR--->
         <div class="w3-bar w3-dark-grey" id="barra_superior">
             <button
                 class="w3-bar-item w3-button w3-medium"
-                onclick="w3_open_sidebar()"
-            >
+                onclick="w3_open_sidebar()">
                 ☰
             </button>
             <span class="w3-bar-item w3-mobile" id="mensaje">Inmobiliaria</span>
@@ -66,7 +65,7 @@
             <div class="visualizarPropiedades w3-left" id="divVisualizar">
                 <div class="w3-bar w3-white w3-border-gray w3-margin-left">
                     <span>
-                        <input type="search" placeholder="Buscar Propietario" class="w3-bar-item w3-input w3-left" id="busqueda" onkeyup="buscar()">
+                        <input type="search" placeholder="Buscar Cliente" class="w3-bar-item w3-input w3-left" id="busqueda" onkeyup="buscar()">
                         <label class="w3-bar-item w3-medium w3-left" id="btnBuscar">
                                 <i class="fa fa-search fa-lg w3-text-orange fa-flip-horizontal"></i>
                         </label>
@@ -93,9 +92,9 @@
         </div>
     </body>
 
-    <!---SCRIPTS --->
-    <script type="application/javascript" src="/Sistema-Inmobiliaria/js/cerrarSesion.js"></script>
-    <script type="application/javascript" src="/Sistema-Inmobiliaria/js/menu_propietario.js"></script>
-    <script type="application/javascript" src="/Sistema-Inmobiliaria/js/animaciones.js"></script>
+     <!---SCRIPTS --->
+     <script type="application/javascript" src="/Sistema-Inmobiliaria/js/cerrarSesion.js"></script>
+     <script type="application/javascript" src="/Sistema-Inmobiliaria/js/menu_cliente.js"></script>
+     <script type="application/javascript" src="/Sistema-Inmobiliaria/js/animaciones.js"></script>
 
 </html>

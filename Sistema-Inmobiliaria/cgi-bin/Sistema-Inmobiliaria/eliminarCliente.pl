@@ -17,17 +17,19 @@ use lib ('/Applications/MAMP/cgi-bin/Sistema-Inmobiliaria');
 # Se carga nuestro paquete
 use Conexion;
 
+print CGI::header();
+
 my $cgi = CGI->new();
 my $query = $cgi;
-my $idAsesor = $query->param("idAsesor");
-#my $idAsesor = "1";
+my $idCliente = $query->param("idCliente");
+
 # la sección de acceso a Mysql
 # Documentación en:
 # https://metacpan.org/pod/DBD::mysql
 my $dbh = conectar();
 # Realizar el query sql
-my $sth = $dbh->prepare("SELECT nombre,apellidoP,apellidoM,correo,celular,direccion,idPropietario FROM Propietario WHERE idAsesor=?");
-$sth->execute($idAsesor) or die $DBI::errstr;
+my $sth = $dbh->prepare("DELETE from Cliente WHERE idCliente=?");
+$sth->execute($idCliente) or die $DBI::errstr;
 
 # colocar el charset para imprimir correctamente los caracteres -- en este caso vamos a cambiar por el XML --
 # https://metacpan.org/pod/XML::Writer
@@ -48,28 +50,17 @@ $writer->startTag('resultado');
 # https://metacpan.org/pod/release/RUDY/DBD-mysql-2.9008/lib/DBD/mysql.pm#Class_Methods
 if ($sth->rows gt 0){
     while (my $row = $sth->fetchrow_hashref){
-        
-        my $nombre = $row->{nombre};
-        my $apellidoP = $row->{apellidoP};
-        my $apellidoM = $row->{apellidoM};
-        my $nombreCompleto = "$nombre $apellidoP $apellidoM";
-        $writer->startTag('div', class => 'w3-row w3-white w3-half w3-padding-small');
-        $writer->startTag('div', class => 'w3-white', id => 'contenedor_propiedad');
-        $writer->startTag('div', class => 'w3-card w3-hover-light-grey', onclick => "w3_open_actualizar(this.id)", id => "$row->{idPropietario}" );
-        $writer->dataElement('h4', $nombreCompleto, class => "w3-margin-left w3-margin-right");
-        $writer->dataElement('label', "celular: ", class => "w3-margin-left");
-        $writer->dataElement('label', $row->{celular}, class => "w3-margin-left");
-        $writer->dataElement('label', $row->{idPropietario}, class => "w3-margin-right w3-text-white w3-right");
-        $writer->endTag('div');
-        $writer->endTag('div');
-        $writer->endTag('div');
+        $writer->dataElement('titulo', "Exito al eliminar");
+        $writer->dataElement('contenido', "Se ha eliminado el cliente correctamente");
     }
 }
-
+else {
+        $writer->dataElement('titulo', "Error de conexion");
+        $writer->dataElement('contenido', "Error de conexión con la base de datos");
+}
 $writer->endTag('resultado');
 $writer->end();
 
 $sth->finish();
 $dbh->disconnect;
-#print $query->header('text/xml'), $fetch;
 print $fetch;
