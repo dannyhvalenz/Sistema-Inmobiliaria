@@ -49,14 +49,12 @@ $writer->startTag('resultado');
 # https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch08s02.html
 # https://metacpan.org/pod/release/RUDY/DBD-mysql-2.9008/lib/DBD/mysql.pm#Class_Methods
 if ($sth->rows gt 0){
-    while (my $row = $sth->fetchrow_hashref){
-        $writer->dataElement('titulo', "Exito al eliminar");
-        $writer->dataElement('contenido', "Se ha eliminado el propietario correctamente");
-    }
+    $writer->dataElement('titulo', "Exito al eliminar");
+    $writer->dataElement('contenido', "Se ha eliminado el propietario correctamente");
 }
 else {
-        $writer->dataElement('titulo', "Error de conexion");
-        $writer->dataElement('contenido', "Error de conexión con la base de datos");
+    $writer->dataElement('titulo', "Error de conexion");
+    $writer->dataElement('contenido', "Error de conexión con la base de datos");
 }
 $writer->endTag('resultado');
 $writer->end();

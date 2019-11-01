@@ -186,18 +186,14 @@ function actualizarCliente(){
 };
 
 function clickEliminar(){
-    alert("eliminar");
     var q = "idCliente="+idCliente;
-    alert(q);
     console.log("Eliminar Cliente");
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4 && xhr.status == 200){
-                alert(xhr.readyState + " " + xhr.status);
                 var respuesta = xhr.responseXML;
                 console.log(xhr.responseXML);
-                /*
-                // ERRORTYPE EROR
+                
                 var x = respuesta.getElementsByTagName("resultado");
 
                 var titulo = x[0].getElementsByTagName("titulo")[0].textContent;
@@ -210,7 +206,7 @@ function clickEliminar(){
                 } else if (titulo == "Error de conexion"){
                     alert(contenido);
                 }
-                */
+                
             }
         }
 
